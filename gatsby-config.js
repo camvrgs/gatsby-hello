@@ -16,10 +16,10 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-hello`,
+      resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `gatsby-hello`,
+        short_name: `hello`,
         start_url: `/`,
         background_color: `#3C9FE5`,
         theme_color: `#3C9FE5`,
