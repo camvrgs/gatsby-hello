@@ -3,7 +3,7 @@ import Layout from '../components/common/Layout';
 import SEO from '../components/common/SEO';
 import Intro from '../components/intro';
 import About from '../components/about';
-import Articles from '../components/Articles';
+import Articles from '../components/articles';
 import Contact from '../components/contact';
 
 const IndexPage = () => (
