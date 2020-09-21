@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+const Wrapper = styled.div`
   z-index: 5;
   top: 1.6rem;
   right: 1.8rem;
   display: none;
   cursor: pointer;
-  transition: left 500ms cubic-bezier(0.6, 0.05, 0.28, 0.91);
+  transition: all 400ms cubic-bezier(.37,.13,.6,.87);
   position: absolute;
 
   @media (max-width: 960px) {
@@ -26,55 +26,48 @@ export const Wrapper = styled.div`
       }
 
       @media (max-width: 600px) {
-        right: 66%;
+        right: 45%;
       }
   `}
 `;
 
-export const Bar = styled.div`
+const Bar = styled.div`
   width: 1.6rem;
   height: .15rem;
   margin-bottom: .3rem;
   background-color: #212121;
-  transition: transform 500ms cubic-bezier(0.6, 0.05, 0.28, 0.91),
-  opacity 500ms,
-  box-shadow 250ms,
-  background-color 500ms;
+  transition: all 400ms cubic-bezier(0.6, 0.05, 0.28, 0.91);
 
   @media (max-width: 600px){
     width: 1.6rem;
   }
 
   ${({ top, sidebar }) =>
-    top &&
-    sidebar &&
+    top && sidebar &&
     `
-    background-color: '#fff')};
-    transform: translateY(8px) rotate(-135deg);
-
+    transform: translateY(8px) rotate(45deg);
   `}
 
   ${({ mid, sidebar }) =>
-    mid &&
-    sidebar &&
+    mid && sidebar &&
     `
-    transform: scale(0);
-    `}
+    opacity: 0;
+    transform: translateX(20px);
+  `}
 
   ${({ bottom, sidebar }) =>
-    bottom &&
-    sidebar &&
+    bottom && sidebar &&
     `
-      background-color: '#fff')};
-      transform: translateY(-6px) rotate(-45deg);
+    transform: translateY(-6px) rotate(-45deg);
   `}
+
 `;
 
 const Hamburger = ({ sidebar, setSidebar }) => {
 
   return (
     <Wrapper sidebar={sidebar} onClick={() => setSidebar(!sidebar)}>
-      <Bar top sidebar={sidebar}/>
+      <Bar top sidebar={sidebar} />
       <Bar mid sidebar={sidebar} />
       <Bar bottom sidebar={sidebar} />
     </Wrapper>

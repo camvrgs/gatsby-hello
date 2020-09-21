@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import NavbarLinks from './NavbarLinks';
 
-export const Wrapper = styled.div`
+const Wrapper = styled.div`
   position: fixed;
   z-index: 4;
   overflow: auto;
@@ -11,8 +11,8 @@ export const Wrapper = styled.div`
   width: 0;
   opacity: 0;
   height: 100%;
-  background-color: '#212121')};
-  transition: all 350ms cubic-bezier(0.6, 0.05, 0.28, 0.91);
+  background-color: '#212121';
+  transition: all 400ms cubic-bezier(.37,.13,.6,.87);
 
   ${({ active }) =>
     active &&
@@ -26,7 +26,7 @@ export const Wrapper = styled.div`
       }
 
       @media (max-width: 600px) {
-        width: 75%;
+        width: 50%;
       }
   `}
 `;
@@ -34,7 +34,7 @@ export const Wrapper = styled.div`
 const Sidebar = ({ sidebar, setSidebar }) => {
 
   return (
-  <Wrapper active={sidebar} onClick={setSidebar}>
+  <Wrapper active={sidebar} onClick={() => setSidebar(!sidebar)}>
     <NavbarLinks />
   </Wrapper>
   )

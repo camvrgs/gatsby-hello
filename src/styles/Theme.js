@@ -39,7 +39,7 @@ module.exports = {
       error: "#ff4136",
     },
   },
-  pageWidth: "62.5rem",
+  pageWidth: "1280px",
   headerHeight: "6.25rem",
   footerHeight: "7.5rem",
 }

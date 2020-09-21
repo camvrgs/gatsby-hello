@@ -5,12 +5,13 @@ import Navbar from './Navbar';
 import Hamburger from './Hamburger';
 import Sidebar from './Sidebar';
 
-export const Wrapper = styled.div`
+const Wrapper = styled.div`
   background: transparent;
   width: 100%;
+  font-size: 1.4rem;
 `;
 
-export const Overlay = styled.div`
+const Overlay = styled.div`
   position: fixed;
   background: rgba(0, 0, 0, 0.7);
   width: 100%;

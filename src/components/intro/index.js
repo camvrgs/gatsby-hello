@@ -1,12 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useStaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image";
 
-import Header from "../header"
+import Header from "../header";
 import Container from '../common/Container';
 
 import overlayIllustration from '../../assets/blob.svg';
 
-export const Wrapper = styled.div`
+const Wrapper = styled.div`
   padding-bottom: 4rem;
   background-image: url(${overlayIllustration});
   background-size: contain;
@@ -14,7 +16,7 @@ export const Wrapper = styled.div`
   background-repeat: no-repeat;
 `;
 
-export const IntroWrapper = styled.div`
+const IntroWrapper = styled.div`
   padding: 4rem 0;
   display: flex;
   align-items: center;
@@ -25,12 +27,14 @@ export const IntroWrapper = styled.div`
   }
 `;
 
-export const Details = styled.div`
-  flex: 1;
+const Blurb = styled.div`
+  flex: 1 0;
+  padding: 2rem;
 
   @media (max-width: 960px) {
     width: 100%;
-    margin-bottom: 2rem;
+    padding: 0 2rem;
+    margin-bottom: 1rem;
   }
 
   h1 {
@@ -63,18 +67,42 @@ export const Details = styled.div`
   }
 `;
 
+const ImgBlurb = styled(Blurb)`
+  @media (max-width: 960px) {
+    width: 80%;
+    margin-bottom: 2rem;
+  }
+`;
+
+const ImageWrapper = styled(Img)`
+  border-radius: 100%;
+
+`;
 
 const Intro = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      imageOne: file(relativePath: { eq: "avatars/cameron-vargas.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 400) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <Wrapper>
       <Header />
       <IntroWrapper as={Container}>
-        <Details>
+        <Blurb>
           <h1>Hello!</h1>
           <h4>My name is Cameron. I'm a web developer.</h4>
-        </Details>
-        <Details>
-        </Details>
+        </Blurb>
+        <ImgBlurb>
+          <ImageWrapper fluid={data.imageOne.childImageSharp.fluid} />
+        </ImgBlurb>
       </IntroWrapper>
     </Wrapper>
   );

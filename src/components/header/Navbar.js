@@ -4,14 +4,14 @@ import { Link } from 'gatsby';
 import Container from '../common/Container';
 import NavbarLinks from './NavbarLinks';
 
-export const Wrapper = styled.div`
+const Wrapper = styled.div`
   padding: 1.5rem 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
 
-export const Brand = styled.a`
+const Brand = styled.a`
   color: '#fff';
   font-weight: 500;
 

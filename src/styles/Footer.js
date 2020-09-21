@@ -28,18 +28,18 @@ export const StyledContentWrapper = styled(ContentWrapper)`
 `
 
 export const StyledLink = styled(Link)`
-  font-size: 0.875rem;
+  font-size: .90rem;
   font-weight: 700;
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.primary};
-  letter-spacing: 1px;
+  letter-spacing: .5px;
 `
 
 export const StyledSocialProfile = styled.a`
   width: auto;
   height: auto;
-  padding: ".3rem 1.25rem";
-  margin: .3rem;
+  padding: "0 1.25rem";
+  margin: 0 .3rem;
   font-size: 1rem;
   color: ${({ theme }) => theme.colors.primary};
   svg {
